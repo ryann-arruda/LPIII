@@ -1,0 +1,23 @@
+<section class="phx-hero">
+  <h1><%= gettext "Bem-vindo(a) a %{name}!", name: "MoviesToWatch" %></h1>
+  <p>Aqui você poderá armazenar os filmes que deseja assistir, realizando um controle do que você pretende assistir e já assistiu!</p>
+</section>
+
+<div>
+  <h2>Selecione o que você deseja fazer!</h2>
+
+    <figure class="figimg_direcionadas_left">
+      <a href="/filmes">
+        <img src={Routes.static_path(@conn, "/images/movie.svg")} alt="Movie"/>
+        <figcaption>Ver Filmes</figcaption>
+      </a>
+    </figure>
+
+    <figure class="figimg_direcionadas_right">
+      <a href="/generos">
+        <img src={Routes.static_path(@conn, "/images/generos.svg")} alt="Genre"/>
+        <figcaption>Ver Gêneros</figcaption>
+      </a>
+    </figure>
+
+</div>

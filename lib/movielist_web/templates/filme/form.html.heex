@@ -1,0 +1,49 @@
+<.form let={f} for={@changeset} action={@action}>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <label for="filme_titulo">Título</label>
+  <%= text_input f, :titulo %>
+  <%= error_tag f, :titulo %>
+
+  <%= label f, :diretor %>
+  <%= text_input f, :diretor %>
+  <%= error_tag f, :diretor %>
+
+  <%= label f, :ano %>
+  <%= text_input f, :ano %>
+  <%= error_tag f, :ano %>
+
+  <label for="filme_duracao">Duração</label>
+  <%= text_input f, :duracao %>
+  <%= error_tag f, :duracao %>
+
+  <label for="filme_genero_id">Gênero</label>
+  <select name="filme[genero_id]" id="filme_genero_id">
+    <%= for genero <- @generos do %>
+      <%= if genero.nome == @genero_f do%>
+        <option value={genero.id} selected="selected"><%= genero.nome %></option>
+      <% else %>
+        <option value={genero.id}><%= genero.nome %></option>
+      <% end %>
+    <% end %>
+  </select>
+
+  <label for="filme_assistido_id">Assistido</label>
+  <select name="filme[assistido_id]" id="filme_assistido_id">
+    <%= for assistido <- @assistidos do %>
+      <%= if assistido.resposta == @assistido_f do%>
+        <option value={assistido.id} selected="selected"><%= assistido.resposta %></option>
+      <% else %>
+        <option value={assistido.id}><%= assistido.resposta %></option>
+      <% end %>
+    <% end %>
+  </select>
+
+  <div>
+    <%= submit "Salvar" %>
+  </div>
+</.form>

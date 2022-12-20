@@ -1,0 +1,44 @@
+<h1>Lista de Filmes</h1>
+
+<table class="referencia_pos">
+  <thead>
+    <tr>
+      <th>Assistido</th>
+      <th>Título</th>
+      <th>Diretor</th>
+      <th>Ano</th>
+      <th>Duracão</th>
+      <th>Gênero</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for filme <- @filmes do %>
+    <tr>
+      <td><%= checkbox(:filme, :assistido_id, hidden_input: false,  onclick: "return false" , value: @assistidos[filme.titulo]) %></td>
+      <td><%= filme.titulo %></td>
+      <td><%= filme.diretor %></td>
+      <td><%= filme.ano %></td>
+      <td width="100px"><%= filme.duracao %></td>
+      <td><%= @generos[filme.titulo] %></td>
+
+      <td>
+        <div class="opcoes_horizontais">
+          <span><%= link "Mostrar", to: Routes.filme_path(@conn, :show, filme) %></span>
+        </div>
+        <div class="opcoes_horizontais">
+          <span><%= link "Editar", to: Routes.filme_path(@conn, :edit, filme) %></span>
+        </div>
+        <div>
+          <span><%= link "Deletar", to: Routes.filme_path(@conn, :delete, filme), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        </div>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span class="posicionar_btn"><%= link "Novo Filme", to: Routes.filme_path(@conn, :new) %></span>
+
+<span><%= link "Voltar", to: Routes.page_path(@conn, :index) %></span>

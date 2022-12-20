@@ -1,0 +1,33 @@
+<h1>Mostrar Filme</h1>
+
+<ul>
+
+  <li>
+    <strong>Título:</strong>
+    <%= @filme.titulo %>
+  </li>
+
+  <li>
+    <strong>Diretor:</strong>
+    <%= @filme.diretor %>
+  </li>
+
+  <li>
+    <strong>Ano:</strong>
+    <%= @filme.ano %>
+  </li>
+
+  <li>
+    <strong>Duracão:</strong>
+    <%= @filme.duracao %>
+  </li>
+
+  <li>
+    <strong>Gênero:</strong>
+    <%= @genero.nome %>
+  </li>
+
+</ul>
+
+<span><%= link "Editar", to: Routes.filme_path(@conn, :edit, @filme) %></span> |
+<span><%= link "Voltar", to: Routes.filme_path(@conn, :index) %></span>

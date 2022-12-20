@@ -1,0 +1,28 @@
+<h1>Listing Assistidos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resposta</th>
+      <th>Confirmacao</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for assistido <- @assistidos do %>
+    <tr>
+      <td><%= assistido.resposta %></td>
+      <td><%= assistido.confirmacao %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.assistido_path(@conn, :show, assistido) %></span>
+        <span><%= link "Edit", to: Routes.assistido_path(@conn, :edit, assistido) %></span>
+        <span><%= link "Delete", to: Routes.assistido_path(@conn, :delete, assistido), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Assistido", to: Routes.assistido_path(@conn, :new) %></span>

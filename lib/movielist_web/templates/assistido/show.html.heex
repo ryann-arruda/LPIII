@@ -1,0 +1,18 @@
+<h1>Show Assistido</h1>
+
+<ul>
+
+  <li>
+    <strong>Resposta:</strong>
+    <%= @assistido.resposta %>
+  </li>
+
+  <li>
+    <strong>Confirmacao:</strong>
+    <%= @assistido.confirmacao %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.assistido_path(@conn, :edit, @assistido) %></span> |
+<span><%= link "Back", to: Routes.assistido_path(@conn, :index) %></span>

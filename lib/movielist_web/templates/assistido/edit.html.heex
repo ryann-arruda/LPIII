@@ -1,0 +1,5 @@
+<h1>Edit Assistido</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.assistido_path(@conn, :update, @assistido)) %>
+
+<span><%= link "Back", to: Routes.assistido_path(@conn, :index) %></span>

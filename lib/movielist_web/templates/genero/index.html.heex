@@ -1,0 +1,34 @@
+<h1>Lista de Gêneros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for genero <- @generos do %>
+    <tr>
+      <td><%= genero.nome %></td>
+
+      <td>
+        <div class="opcoes_verticais">
+          <span><%= link "Mostrar", to: Routes.genero_path(@conn, :show, genero) %></span>
+        </div>
+        <div class="opcoes_verticais">
+          <span><%= link "Editar", to: Routes.genero_path(@conn, :edit, genero) %></span>
+        </div>
+        <div class="mudar_display">
+          <span><%= link "Deletar", to: Routes.genero_path(@conn, :delete, genero), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        </div>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span class="posicionar_btn"><%= link "Novo Gênero", to: Routes.genero_path(@conn, :new) %></span>
+
+<span><%= link "Voltar", to: Routes.page_path(@conn, :index) %></span>

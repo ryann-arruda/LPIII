@@ -1,0 +1,5 @@
+<h1>Novo Gênero</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.genero_path(@conn, :create)) %>
+
+<span><%= link "Voltar", to: Routes.genero_path(@conn, :index) %></span>

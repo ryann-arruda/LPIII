@@ -1,0 +1,5 @@
+<h1>Novo Filme</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.filme_path(@conn, :create)) %>
+
+<span><%= link "Voltar", to: Routes.filme_path(@conn, :index) %></span>
